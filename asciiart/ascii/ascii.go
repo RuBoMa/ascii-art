@@ -17,7 +17,7 @@ func PrintAsciiArt(input string) string {
 	} else if len(input) != 0 {
 		//splitting the banner file into a slice by rows (Index 0 = row 1)
 		bannerFileLines := strings.Split(string(bannerFile), "\n")
-		//splitting the input into a slice by literal new line
+		//splitting the input into a slice by \n
 		words := strings.Split(input, "\\n")
 
 		onlyNewLines := true
