@@ -15,6 +15,17 @@ func TestPrintAsciiArt(t *testing.T) {
 		want  string
 	}{
 		{
+			name:  "empty",
+			input: "",
+			want:  ``,
+		},
+		{
+			name:  "newline",
+			input: "\\n",
+			want: `
+`,
+		},
+		{
 			name:  "Hello\\n",
 			input: "Hello\\n",
 			want: ` _    _          _   _          

@@ -13,7 +13,7 @@ func PrintAsciiArt(input string) string {
 
 	bannerFile, err := os.ReadFile("standard.txt")
 	if err != nil {
-		fmt.Print("ERROR: Couldn't read the banner file", err)
+		fmt.Print("ERROR: Couldn't read the banner file: ", err)
 	} else if len(input) != 0 {
 		//splitting the banner file into a slice by rows (Index 0 = row 1)
 		bannerFileLines := strings.Split(string(bannerFile), "\n")
@@ -24,7 +24,7 @@ func PrintAsciiArt(input string) string {
 
 		//An empty index generates a newline, else the index is looped to match indexes from bannerFileLines
 		for _, word := range words {
-			if word == "" || word == "\n" {
+			if word == "" {
 				result += "\n"
 			} else {
 				onlyNewLines = false

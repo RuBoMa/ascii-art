@@ -11,6 +11,7 @@ func main() {
 	if !isValid(os.Args) {
 		os.Exit(2)
 	}
+
 	input := os.Args[1]
 	result := ascii.PrintAsciiArt(input)
 	fmt.Print(result)
