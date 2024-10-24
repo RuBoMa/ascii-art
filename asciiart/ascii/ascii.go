@@ -7,16 +7,17 @@ import (
 )
 
 // reading the banner file and printing ascii art matching the input argument
-func PrintAsciiArt(input string) string {
+func PrintAsciiArt(input, banner string) string {
 
 	var result string
 
-	bannerFile, err := os.ReadFile("standard.txt")
+	bannerFile, err := os.ReadFile("./banners/" + banner + ".txt")
 	if err != nil {
 		fmt.Print("ERROR: Couldn't read the banner file: ", err)
 	} else if len(input) != 0 {
+		cleaned := cleandInput(bannerFile)
 		//splitting the banner file into a slice by rows (Index 0 = row 1)
-		bannerFileLines := strings.Split(string(bannerFile), "\n")
+		bannerFileLines := strings.Split(string(cleaned), "\n")
 		//splitting the input into a slice by \n
 		words := strings.Split(input, "\\n")
 
@@ -43,4 +44,8 @@ func PrintAsciiArt(input string) string {
 	}
 
 	return result
+}
+
+func cleandInput(filecontent []byte) string {
+	return strings.ReplaceAll(string(filecontent), "\r\n", "\n")
 }

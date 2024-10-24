@@ -150,7 +150,7 @@ func TestPrintAsciiArt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := ascii.PrintAsciiArt(tt.input)
+			got := ascii.PrintAsciiArt(tt.input, "standard")
 			assert.Equal(t, tt.want, got)
 		})
 	}
